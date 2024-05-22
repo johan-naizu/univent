@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-
+const mongoose = require("../util/db");
 const Schema = mongoose.Schema;
 const attendeeSchema = new Schema({
   name: { type: String, required: true },

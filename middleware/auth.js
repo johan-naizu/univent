@@ -5,6 +5,10 @@ const jwt = require("jsonwebtoken");
 const authentication = (req, res, next) => {
   try {
     if (!req.headers.authorization) {
+      if (req.url === "/organiser/login") {
+        return next();
+      }
+
       return res.status(401).json({ error: "unauthorized" });
     }
     if (req.headers.authorization.split(" ")[0] !== "Bearer") {

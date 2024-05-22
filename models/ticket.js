@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require("../util/db");
+
 const Schema = mongoose.Schema;
 const ticketSchema = new Schema({
   event: { type: Schema.Types.ObjectId, ref: "Event", required: true },

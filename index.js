@@ -7,7 +7,7 @@ require("dotenv").config();
 const attendeeRoute = require("./routes/attendee");
 const ticketRoute = require("./routes/ticket");
 const eventRoute = require("./routes/event");
-
+const organiserRoute = require("./routes/organiser");
 //import middleware
 const authentication = require("./middleware/auth");
 //app
@@ -16,6 +16,8 @@ const app = express();
 //middlewares
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use("/organiser", organiserRoute);
 app.use(authentication);
 
 //routes middleware
