@@ -2,7 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config();
-
+//SETUP
+const createFirstAdmin = require("./util/setup");
+createFirstAdmin();
 //import routes
 const attendeeRoute = require("./routes/attendee");
 const ticketRoute = require("./routes/ticket");
