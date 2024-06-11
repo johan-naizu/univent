@@ -11,6 +11,8 @@ const ticketRoute = require("./routes/ticket");
 const eventRoute = require("./routes/event");
 const organiserRoute = require("./routes/organiser");
 //import middleware
+const metricsMiddleware = require("./middleware/prometheus");
+const { getMetrics } = require("./controllers/prometheus");
 const authentication = require("./middleware/auth");
 //app
 const app = express();
@@ -18,7 +20,8 @@ const app = express();
 //middlewares
 app.use(bodyParser.json());
 app.use(cors());
-
+app.use(metricsMiddleware);
+app.get("/metrics", getMetrics);
 app.use("/organiser", organiserRoute);
 app.use(authentication);
 
