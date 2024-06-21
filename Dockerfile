@@ -9,7 +9,7 @@ RUN npm ci
 
 COPY . .
 
-RUN mkdir -p logs
+RUN mkdir -p /usr/app/logs
 
 EXPOSE 8080
 
