@@ -9,6 +9,8 @@ RUN npm ci
 
 COPY . .
 
+RUN mkdir -p logs
+
 EXPOSE 8080
 
 CMD ["node", "index.js"]

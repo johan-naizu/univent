@@ -1,3 +1,18 @@
+const fs = require("fs");
+const util = require("util");
+const logFile = fs.createWriteStream("logs/console.log", { flags: "a" }); // 'a' for appending
+const logStdout = process.stdout;
+
+console.log = function () {
+  const message = util.format.apply(null, arguments) + "\n";
+  logFile.write(message);
+  logStdout.write(message);
+};
+console.error = function () {
+  const message = util.format.apply(null, arguments) + "\n";
+  logFile.write(message);
+  logStdout.write(message);
+};
 //setup and connect mongoose
 const mongoose = require("mongoose");
 mongoose
